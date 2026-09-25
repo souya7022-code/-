@@ -33,3 +33,12 @@ node render.mjs --mb 4 --workers 4 --out showreel.mp4
 ```
 
 `--mb` は1フレームあたりのモーションブラーのサブフレーム数、`--frames 300:420` で一部だけ書き出せます。
+
+## 次回から（第2の脳）
+
+`/motion-showreel` スキル（`.claude/skills/motion-showreel/SKILL.md`）に、プロンプトの型・手順・学んだことをまとめています。
+
+```bash
+eval "$(showreel/tools/setup.sh)"                 # ffmpeg / playwright を準備
+node showreel/tools/preview.mjs /tmp/pv --every 0.5  # コマ一覧で確認
+```
