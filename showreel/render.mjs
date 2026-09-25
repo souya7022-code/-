@@ -70,7 +70,7 @@ server.close();
 execFileSync(FFMPEG, ['-y', '-hide_banner', '-loglevel', 'error',
   '-framerate', String(FPS), '-start_number', String(F0), '-i', path.join(TMP, 'f%04d.png'),
   '-ss', String(F0 / FPS), '-i', path.join(TMP, 'audio.wav'),
-  '-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
+  '-c:v', 'libx264', '-preset', 'slow', '-crf', '22', '-maxrate', '12M', '-bufsize', '24M', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
   '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
   '-c:a', 'aac', '-b:a', '256k', '-shortest', '-movflags', '+faststart', OUT], { stdio: 'inherit' });
 console.log('wrote', OUT, `(${(fs.statSync(OUT).size / 1e6).toFixed(1)} MB) frames in ${TMP}`);
